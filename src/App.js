@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from "react"
+import { useState, useEffect } from "react";
+import { Creator } from './components/Creator';
+
 
 function App() {
   const [clientes, setClientes] = useState([]);
@@ -11,13 +13,31 @@ function App() {
   const addClientes = (cliente) => {
     setClientes([...clientes, cliente])
   }
+  const addEmpleados = (empleado) => {
+    setEmpleados([...empleados, empleado])
+  }
+  const addItems = (item) => {
+    setItems([...items, item])
+  }
+  const addOrdenes = (orden) => {
+    setOrdenes([...ordenes, orden])
+  }
+
+  useEffect(()=>{
+    let dataClientes = localStorage.getItem("clientes");
+    if(dataClientes){
+      setClientes(JSON.parse(dataClientes));
+    }
+  }, [  ]);
+
+  useEffect(() => {
+    localStorage.setItem("clientes", JSON.stringify(clientes))
+  }, [clientes])
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Cafeteria</h1>
-      </header>
-
+      
+      <Creator tInterfaz={"Clientes"} addClientes={addClientes} />
     </div>
   );
 }
