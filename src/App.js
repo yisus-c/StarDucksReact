@@ -37,7 +37,7 @@ function App() {
   return (
     <div className="App">
       
-      <Creator tInterfaz={"Clientes"} addClientes={addClientes} />
+      <Creator tInterfaz="Clientes" addClientes={addClientes} />
     </div>
   );
 }

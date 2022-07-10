@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 export const Creator = ({ tInterfaz, addClientes }) => {
-  const [newClientName, setNewClientName] = useState();
-  const [newClientCorreo, setNewClientCorreo] = useState();
+  const [newClientName, setNewClientName] = useState('');
+  const [newClientCorreo, setNewClientCorreo] = useState('');
   
   if (tInterfaz === "Clientes") {
     const handleSubmit = (e) => {
@@ -10,10 +10,11 @@ export const Creator = ({ tInterfaz, addClientes }) => {
             efectivo: 0,
             puntos: {},
             tarjeta: {}
-        }
+        };
         e.preventDefault();
-        addClientes({name: newClientName, correo: newClientCorreo, metodosPago})
-        setNewClientName("")
+        addClientes({name: newClientName, correo: newClientCorreo, metodosPago});
+        setNewClientName('');
+        setNewClientCorreo('')
     };
     return (
       <form onSubmit={handleSubmit}>
@@ -27,7 +28,7 @@ export const Creator = ({ tInterfaz, addClientes }) => {
           type="text"
           placeholder="Correo"
           value={newClientCorreo}
-          onChange={(a) => setNewClientCorreo(a.target.value)}
+          onChange={(e) => setNewClientCorreo(e.target.value)}
         />
         <button>Guardar</button>
       </form>
