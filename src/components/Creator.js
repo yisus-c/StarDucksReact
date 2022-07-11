@@ -35,9 +35,26 @@ export const Creator = ({ tInterfaz, addClientes }) => {
     );
   }
   if (tInterfaz === "Empleados") {
+    const handleSubmit = (e) => {
+
+    }
+    return(
+      <form>
+        <select>
+          <option value="Cajero">Cajero</option>
+          <option value="Barista">Barista</option>
+        </select>
+      </form>
+    );
   }
   if (tInterfaz === "Items") {
-  }
-  if (tInterfaz === "Ordenes") {
+    const handleSubmit = (e) => {
+      
+    }
+    return(
+      <form>
+
+      </form>
+    )
   }
 };

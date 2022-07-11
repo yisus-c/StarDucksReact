@@ -32,12 +32,23 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("clientes", JSON.stringify(clientes))
-  }, [clientes])
+  }, [clientes]);
+
+  let pagina = 2;
 
   return (
     <div className="App">
+      {pagina===1 && (
+        <Creator tInterfaz="Clientes" addClientes={addClientes} /> 
+
+      )}
+      {pagina === 2 && (
+        <Creator tInterfaz="Empleados"/>
+      )}
+      {pagina === 3 && (
+        <Creator tInterfaz="Items"/>
+      )}
       
-      <Creator tInterfaz="Clientes" addClientes={addClientes} />
     </div>
   );
 }
