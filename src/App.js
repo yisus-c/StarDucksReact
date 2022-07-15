@@ -1,12 +1,13 @@
 import './App.css';
 import { useState, useEffect } from "react";
-import { Creator } from './components/Creator';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBar } from './components/NavBar';
-import { BrowserRouter as Router, Routes, Route, Switch, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import { InterfazCliente } from './components/InterfazCliente';
 import { InterfazEmpleado } from './components/InterfazEmpleado';
 import { Home } from './components/Home';
+import { InterfazItems } from './components/InterfazItems';
+import { InterfazOrdenes } from './components/InterfazOrdenes';
 
 function App() {
 
@@ -15,11 +16,13 @@ function App() {
   const [items, setItems] = useState([]);
   const [ordenes, setOrdenes] = useState([]);
   
-  const addClientes = (cliente) => {
-    setClientes([...clientes, cliente])
+  const addClientes = ({name, correo, metodosPago}) => {
+    let id = clientes.length;
+    setClientes([...clientes, {id, name, correo, metodosPago}])
   }
-  const addEmpleados = (empleado) => {
-    setEmpleados([...empleados, empleado])
+  const addEmpleados = ({name, salario, puesto}) => {
+    let id = empleados.length;
+    setEmpleados([...empleados, {id, name, salario, puesto}]);
   }
   const addItems = (item) => {
     setItems([...items, item])
@@ -50,8 +53,10 @@ function App() {
           <Routes>
             <Route path="/clientes" element={<InterfazCliente addClientes={addClientes}/>} />
             <Route path="/empleados" element={<InterfazEmpleado addEmpleados={addEmpleados}/> } />
+            <Route path="/items" element={<InterfazItems addItems={addItems}/>} />
+            <Route path="/ordenes" element={<InterfazOrdenes addOrdenes={addOrdenes}/>}/>
+            <Route path="/" element={<Home/>} />
           </Routes>
-        
       </div>
     </Router>
   );

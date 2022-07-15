@@ -38,6 +38,7 @@ export const Creator = ({ tInterfaz, addClientes, addEmpleados }) => {
       </form>
     );
   }
+
   if (tInterfaz === "Empleados") {
     
     const handleSubmitEmpleado = (e) => {
@@ -72,12 +73,13 @@ export const Creator = ({ tInterfaz, addClientes, addEmpleados }) => {
       </form>
     );
   }
+  
   if (tInterfaz === "Items") {
     const handleSubmit = (e) => {
       
     }
     return(
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Hola mundo</label>
       </form>
     )
