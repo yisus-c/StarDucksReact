@@ -39,11 +39,14 @@ export const Creator = ({ tInterfaz, addClientes, addEmpleados }) => {
     );
   }
   if (tInterfaz === "Empleados") {
+    
     const handleSubmitEmpleado = (e) => {
+      let puesto = document.getElementById("puestos").value;
       e.preventDefault();
-      addEmpleados({name: newEmpleadoName, salario: newEmpleadoSalario});
+      addEmpleados({name: newEmpleadoName, salario: newEmpleadoSalario, puesto});
       setNewEmpleadoName('');
       setNewEmpleadoSalario(0);
+      
     }
     return(
       <form onSubmit={handleSubmitEmpleado}>
@@ -61,7 +64,7 @@ export const Creator = ({ tInterfaz, addClientes, addEmpleados }) => {
           step="any"
         />
         <label>Puesto: </label>
-        <select > 
+        <select id="puestos"> 
           <option value="Cajero">Cajero</option>
           <option value="Barista">Barista</option>
         </select>
