@@ -24,8 +24,9 @@ function App() {
     let id = empleados.length;
     setEmpleados([...empleados, {id, name, salario, puesto}]);
   }
-  const addItems = (item) => {
-    setItems([...items, item])
+  const addItems = ({description, price, tipo}) => {
+    let id = items.length;
+    setItems([...items, {id, description, price, tipo}]);
   }
   const addOrdenes = (orden) => {
     setOrdenes([...ordenes, orden])
@@ -34,16 +35,19 @@ function App() {
   useEffect(()=>{
     let dataClientes = localStorage.getItem("clientes");
     let dataEmpleados = localStorage.getItem("empleados");
-    if(dataClientes && dataEmpleados){
+    let dataItems = localStorage.getItem("items");
+    if(dataClientes && dataEmpleados && dataItems){
       setClientes(JSON.parse(dataClientes));
       setEmpleados(JSON.parse(dataEmpleados));
+      setItems(JSON.parse(dataItems));
     }
   }, [  ]);
 
   useEffect(() => {
     localStorage.setItem("clientes", JSON.stringify(clientes));
     localStorage.setItem("empleados", JSON.stringify(empleados));
-  }, [clientes, empleados]);
+    localStorage.setItem("items", JSON.stringify(items));
+  }, [clientes, empleados, items]);
 
   
   return (
