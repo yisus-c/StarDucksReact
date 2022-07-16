@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const NavBar = () => {
   
     return(
-        <ul className="nav justify-content-center">
+        <ul className="nav justify-content-between pb-2">
             <li className="nav-item">
                 <NavLink to="/clientes" className="nav-link" >Clientes</NavLink>
             </li>

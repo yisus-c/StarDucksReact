@@ -1,8 +1,9 @@
 import { Creator } from "./Creator";
+import { CreatorClientes } from "./CreatorClientes";
 
 export const InterfazCliente = ({addClientes}) => {
     
     return (
-        <Creator tInterfaz="Clientes" addClientes={addClientes}></Creator>
+        <CreatorClientes addClientes={addClientes} />
     )
 }

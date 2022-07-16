@@ -8,6 +8,7 @@ import { InterfazEmpleado } from './components/InterfazEmpleado';
 import { Home } from './components/Home';
 import { InterfazItems } from './components/InterfazItems';
 import { InterfazOrdenes } from './components/InterfazOrdenes';
+import { Container } from './components/Container';
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
   return (
     <Router>
       <div className="App bg-dark vh-100 text-white">
+        <Container>
           <NavBar />        
           <Routes>
             <Route path="/clientes" element={<InterfazCliente addClientes={addClientes}/>} />
@@ -61,6 +63,7 @@ function App() {
             <Route path="/ordenes" element={<InterfazOrdenes addOrdenes={addOrdenes}/>}/>
             <Route path="/" element={<Home/>} />
           </Routes>
+          </Container>
       </div>
     </Router>
   );

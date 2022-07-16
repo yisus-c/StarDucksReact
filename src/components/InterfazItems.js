@@ -1,7 +1,8 @@
 import { Creator } from "./Creator"
+import { CreatorItems } from "./CreatorItems"
 
 export const InterfazItems = ({addItems}) => {
     return(
-        <Creator tInterfaz="Items" addItems={addItems}/>
+        <CreatorItems addItems={addItems} />
     )
 }

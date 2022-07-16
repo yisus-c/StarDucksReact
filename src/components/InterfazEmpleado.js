@@ -1,7 +1,8 @@
 import { Creator } from "./Creator"
+import { CreatorEmpleados } from "./CreatorEmpleados";
 
 export const InterfazEmpleado = ({addEmpleados}) =>{
     return(
-        <Creator tInterfaz="Empleados" addEmpleados={addEmpleados}></Creator>
+        <CreatorEmpleados addEmpleados={addEmpleados} />
     );
 }
