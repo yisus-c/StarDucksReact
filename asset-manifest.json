@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/StarDucks/static/css/main.16198c12.css",
+    "main.js": "/StarDucks/static/js/main.aed640e2.js",
+    "index.html": "/StarDucks/index.html",
+    "main.16198c12.css.map": "/StarDucks/static/css/main.16198c12.css.map",
+    "main.aed640e2.js.map": "/StarDucks/static/js/main.aed640e2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.16198c12.css",
+    "static/js/main.aed640e2.js"
+  ]
+}
