@@ -3,12 +3,10 @@ import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { NavBar } from "./components/NavBar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { InterfazCliente } from "./components/InterfazCliente";
-import { InterfazEmpleado } from "./components/InterfazEmpleado";
 import { Home } from "./components/Home";
-import { InterfazItems } from "./components/InterfazItems";
 import { InterfazOrdenes } from "./components/InterfazOrdenes";
 import { Container } from "./components/Container";
+import { InterfazGenerica } from "./components/InterfazGenerica";
 
 function App() {
   const [clientes, setClientes] = useState([]);
@@ -57,15 +55,15 @@ function App() {
           <Routes>
             <Route
               path="/clientes"
-              element={<InterfazCliente addClientes={addClientes} list={clientes}/>}
+              element={<InterfazGenerica tInterfaz="Clientes" addMethod={addClientes} list={clientes} />}
             />
             <Route
               path="/empleados"
-              element={<InterfazEmpleado addEmpleados={addEmpleados} list={empleados}/>}
+              element={<InterfazGenerica tInterfaz="Empleados" addMethod={addEmpleados} list={empleados}/>}
             />
             <Route
               path="/items"
-              element={<InterfazItems addItems={addItems} list={items}/>}
+              element={<InterfazGenerica tInterfaz="Items" addMethod={addItems} list={items} />}
             />
             <Route
               path="/ordenes"

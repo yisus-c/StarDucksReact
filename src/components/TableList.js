@@ -1,3 +1,7 @@
+import { TableHeader } from "./TableHeader";
+import { TableRows } from "./TableRows";
+import { useEffect, useState } from "react";
+
 export const TableList = ({ tipoTabla, list }) => {
   const obtener = (tipo, objeto) => {
     let propiedades = [];
@@ -5,11 +9,10 @@ export const TableList = ({ tipoTabla, list }) => {
     for (let key in objeto) {
       if (objeto.hasOwnProperty(key)) {
         let element = objeto[key];
-        if(key!='metodosPago'){
-            propiedades.push(key);
-            valores.push(element);
+        if (key != "metodosPago") {
+          propiedades.push(key);
+          valores.push(element);
         }
-        
       }
     }
     if (tipo === 1) {
@@ -17,35 +20,43 @@ export const TableList = ({ tipoTabla, list }) => {
     }
     return valores;
   };
+  const [valorBusqueda, setValorBusqueda] = useState("");
+  const [newList, setNewList] = useState([]);
+  //const [segundaPropiedad, setSegundaPropiedad] = useState('')
+  //const [propiedades, setPropiedades] = useState([])
+  let propiedades = obtener(1, list[0]);
+  let segundaPropiedad = propiedades[1];
+
+  useEffect(() => {
+    setNewList(
+      list.filter(
+        (objeto) =>
+          objeto[segundaPropiedad].includes(valorBusqueda) ||
+          objeto.id == valorBusqueda
+      )
+    );
+  }, [valorBusqueda, list, segundaPropiedad]);
+
   return (
     <div>
       <table className="table">
         <thead>
-          <tr className="table-primary">
-            <th>{tipoTabla}</th>
-          </tr>
+          <TableHeader
+            tTabla={tipoTabla}
+            valorBusqueda={(valor) => setValorBusqueda(valor)}
+          />
         </thead>
       </table>
 
       <table className="table table-dark table-striped table-bordered border-secondary">
         <thead>
           <tr>
-            {obtener(1, list[0]).map(
-              (propiedad) => (
-                <th key={propiedad}>{propiedad}</th>
-              )
-            )}
+            {obtener(1, list[0]).map((propiedad) => (
+              <th key={propiedad}>{propiedad}</th>
+            ))}
           </tr>
         </thead>
-        <tbody>
-          {list.map((objeto) => (
-            <tr key={objeto.id}>
-              {obtener(0, objeto).map((valor) => (
-                <td key={valor}>{valor}</td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
+        <TableRows list={newList} obtener={obtener} />
       </table>
     </div>
   );

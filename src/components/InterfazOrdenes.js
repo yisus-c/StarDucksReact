@@ -1,5 +1,5 @@
 export const InterfazOrdenes = ({addOrdenes}) =>{
     return(
-        <h1>Ordenes</h1>
+        <h2>Ordenes</h2>
     )
 }
