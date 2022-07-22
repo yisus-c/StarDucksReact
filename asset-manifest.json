@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/StarDucksReact/static/css/main.16198c12.css",
-    "main.js": "/StarDucksReact/static/js/main.aed640e2.js",
+    "main.js": "/StarDucksReact/static/js/main.2ec599fc.js",
     "index.html": "/StarDucksReact/index.html",
     "main.16198c12.css.map": "/StarDucksReact/static/css/main.16198c12.css.map",
-    "main.aed640e2.js.map": "/StarDucksReact/static/js/main.aed640e2.js.map"
+    "main.2ec599fc.js.map": "/StarDucksReact/static/js/main.2ec599fc.js.map"
   },
   "entrypoints": [
     "static/css/main.16198c12.css",
-    "static/js/main.aed640e2.js"
+    "static/js/main.2ec599fc.js"
   ]
 }
